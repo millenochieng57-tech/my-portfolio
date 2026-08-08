@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="millen - Junior Cybersecurity Student Portfolio">
+<title>millen | Cybersecurity Portfolio</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+:root{
+--bg:#05080d;--card:#0b1620;--green:#00ff9d;--blue:#00bfff;
+--white:#f1f5f9;--gray:#91a4b0;--border:rgba(0,255,157,.18)
+}
+body{
+background:var(--bg);color:var(--white);
+font-family:"Segoe UI",Arial,sans-serif;line-height:1.6
+}
+body::before{
+content:"";position:fixed;inset:0;z-index:-1;
+background-image:linear-gradient(rgba(0,255,157,.025) 1px,transparent 1px),
+linear-gradient(90deg,rgba(0,255,157,.025) 1px,transparent 1px);
+background-size:40px 40px
+}
+nav{
+position:fixed;top:0;width:100%;padding:18px 8%;display:flex;
+justify-content:space-between;align-items:center;background:rgba(5,8,13,.92);
+backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:1000
+}
+.logo{font-family:monospace;font-size:1.4rem;font-weight:bold;color:var(--green)}
+.logo span{color:white}
+nav ul{display:flex;gap:30px;list-style:none}
+nav a{color:var(--white);text-decoration:none;transition:.3s}
+nav a:hover{color:var(--green)}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 8% 80px}
+.hero-content{max-width:900px}
+.terminal{font-family:monospace;color:var(--green);margin-bottom:20px}
+.hero h1{font-size:clamp(3rem,8vw,6rem);line-height:1;margin-bottom:20px}
+.hero h1 span{color:var(--green)}
+.hero h2{color:var(--blue);font-size:1.6rem;font-weight:500;margin-bottom:20px}
+.hero p{color:var(--gray);max-width:700px;font-size:1.1rem;margin-bottom:30px}
+.buttons{display:flex;gap:15px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 24px;border-radius:5px;text-decoration:none;font-weight:600;transition:.3s}
+.primary{background:var(--green);color:#00140c}
+.primary:hover{transform:translateY(-3px);box-shadow:0 0 20px rgba(0,255,157,.25)}
+.secondary{border:1px solid var(--green);color:var(--green)}
+.secondary:hover{background:rgba(0,255,157,.08);transform:translateY(-3px)}
+
+section{padding:100px 8%}
+.section-title{text-align:center;margin-bottom:60px}
+.section-title h2{font-size:2.5rem;margin-bottom:10px}
+.section-title h2 span{color:var(--green)}
+.section-title p{color:var(--gray)}
+
+.about{max-width:1000px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.about-card,.skill,.project,.contact-box{
+background:var(--card);border:1px solid var(--border);border-radius:10px
+}
+.about-card{padding:30px;transition:.3s}
+.about-card:hover,.skill:hover{border-color:var(--green);transform:translateY(-5px)}
+.about-card h3,.skill h3{color:var(--green);margin-bottom:12px}
+.about-card p,.skill p,.project p,.learning-item p,.contact-box p{color:var(--gray)}
+
+.skills{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skill{padding:25px;transition:.3s}
+.skill-icon{font-size:2rem;margin-bottom:10px}
+
+.projects{max-width:1000px;margin:auto}
+.project{padding:35px;position:relative;overflow:hidden}
+.project::before{content:"";position:absolute;left:0;top:0;width:4px;height:100%;background:var(--green)}
+.project-top{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:15px}
+.project h3{font-size:1.5rem}
+.status{color:var(--green);border:1px solid var(--border);padding:5px 12px;border-radius:20px;font-size:.8rem;font-family:monospace}
+.project h4{color:var(--blue);margin:20px 0 10px}
+.project ul{padding-left:20px;color:var(--gray)}
+.project li{margin-bottom:6px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:25px}
+.tag{font-family:monospace;color:var(--green);background:rgba(0,255,157,.06);border:1px solid var(--border);padding:5px 10px;border-radius:4px;font-size:.8rem}
+
+.learning{max-width:850px;margin:auto}
+.learning-item{display:flex;gap:20px;margin-bottom:30px}
+.number{min-width:45px;height:45px;display:flex;align-items:center;justify-content:center;
+background:rgba(0,255,157,.08);border:1px solid var(--green);border-radius:50%;color:var(--green);font-family:monospace}
+.learning-item h3{margin-bottom:5px}
+
+.contact-box{max-width:800px;margin:auto;text-align:center;padding:50px 30px}
+.contact-box h3{font-size:1.6rem;margin-bottom:10px}
+.contact-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap}
+.contact-links a{color:var(--green);border:1px solid var(--border);padding:10px 18px;border-radius:5px;text-decoration:none;transition:.3s}
+.contact-links a:hover{background:rgba(0,255,157,.08)}
+
+footer{text-align:center;padding:30px;border-top:1px solid var(--border);color:var(--gray)}
+footer span{color:var(--green)}
+
+@media(max-width:800px){
+nav{padding:15px 5%}nav ul{display:none}
+section{padding:80px 5%}.hero{padding-left:5%;padding-right:5%}
+.about,.skills{grid-template-columns:1fr}
+.project-top{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">&lt;<span>millen</span>/&gt;</div>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#learning">Learning</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero" id="home">
+<div class="hero-content">
+<div class="terminal">$ whoami</div>
+<h1>Hi, I'm <span>millen</span>.</h1>
+<h2>Junior Cybersecurity Student</h2>
+<p>
+I am a cybersecurity student building practical skills in Linux,
+networking, virtualization and information security. I am developing
+my knowledge through hands-on labs and personal projects.
+</p>
+<div class="buttons">
+<a href="#projects" class="btn primary">View My Project</a>
+<a href="#contact" class="btn secondary">Contact Me</a>
+</div>
+</div>
+</section>
+
+<section id="about">
+<div class="section-title">
+<h2>About <span>Me</span></h2>
+<p>A student building a foundation in cybersecurity.</p>
+</div>
+<div class="about">
+<div class="about-card">
+<h3>Who I Am</h3>
+<p>
+I am a junior cybersecurity student interested in understanding how
+computers, networks and systems work and how they can be protected
+from security threats.
+</p>
+</div>
+<div class="about-card">
+<h3>My Goal</h3>
+<p>
+My goal is to develop strong practical cybersecurity skills through
+continuous learning, hands-on labs and real projects.
+</p>
+</div>
+</div>
+</section>
+
+<section id="skills">
+<div class="section-title">
+<h2>My <span>Skills</span></h2>
+<p>Areas I am currently learning and developing.</p>
+</div>
+<div class="skills">
+<div class="skill"><div class="skill-icon">🐧</div><h3>Linux</h3><p>Learning Linux commands, system navigation, file management and basic administration.</p></div>
+<div class="skill"><div class="skill-icon">🌐</div><h3>Networking</h3><p>Developing knowledge of IP addresses, networking, protocols and connectivity.</p></div>
+<div class="skill"><div class="skill-icon">🔐</div><h3>Cybersecurity</h3><p>Building knowledge of cybersecurity fundamentals, threats, vulnerabilities and security practices.</p></div>
+<div class="skill"><div class="skill-icon">💻</div><h3>Virtualization</h3><p>Using VirtualBox to create controlled virtual environments for cybersecurity learning.</p></div>
+<div class="skill"><div class="skill-icon">🛡️</div><h3>Security Labs</h3><p>Developing practical experience through controlled cybersecurity exercises and virtual machines.</p></div>
+<div class="skill"><div class="skill-icon">🔎</div><h3>Problem Solving</h3><p>Troubleshooting technical problems and learning how systems behave in different environments.</p></div>
+</div>
+</section>
+
+<section id="projects">
+<div class="section-title">
+<h2>My <span>Projects</span></h2>
+<p>Practical work from my cybersecurity learning journey.</p>
+</div>
+<div class="projects">
+<div class="project">
+<div class="project-top">
+<h3>Cybersecurity Virtual Lab</h3>
+<span class="status">IN PROGRESS</span>
+</div>
+<p>
+A personal virtual cybersecurity laboratory created to provide a
+controlled environment for learning Linux, networking and cybersecurity concepts.
+</p>
+
+<h4>Environment</h4>
+<ul>
+<li>Windows 11 host system</li>
+<li>Oracle VirtualBox</li>
+<li>Kali Linux</li>
+<li>NAT networking</li>
+<li>2 virtual processors</li>
+<li>Approximately 3 GB RAM</li>
+<li>80 GB virtual disk</li>
+</ul>
+
+<h4>Completed</h4>
+<ul>
+<li>Installed VirtualBox</li>
+<li>Created the Kali Linux virtual machine</li>
+<li>Configured virtual machine resources</li>
+<li>Successfully booted Kali Linux</li>
+<li>Established a working virtual environment</li>
+</ul>
+
+<h4>Next Steps</h4>
+<ul>
+<li>Practice Linux commands</li>
+<li>Explore networking fundamentals</li>
+<li>Learn security tools in a controlled lab</li>
+<li>Perform authorized security exercises</li>
+<li>Document findings and lessons learned</li>
+</ul>
+
+<div class="tags">
+<span class="tag">Kali Linux</span>
+<span class="tag">VirtualBox</span>
+<span class="tag">Linux</span>
+<span class="tag">Networking</span>
+<span class="tag">Cybersecurity</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="learning">
+<div class="section-title">
+<h2>My <span>Learning Path</span></h2>
+<p>The skills I plan to develop as I progress.</p>
+</div>
+<div class="learning">
+<div class="learning-item"><div class="number">01</div><div><h3>Linux Fundamentals</h3><p>Become comfortable with the Linux terminal, files, permissions, processes and basic administration.</p></div></div>
+<div class="learning-item"><div class="number">02</div><div><h3>Networking</h3><p>Build a strong understanding of IP addresses, TCP/IP, ports, DNS and network troubleshooting.</p></div></div>
+<div class="learning-item"><div class="number">03</div><div><h3>Security Fundamentals</h3><p>Learn about vulnerabilities, threats, authentication, defensive security and security monitoring.</p></div></div>
+<div class="learning-item"><div class="number">04</div><div><h3>Practical Security Labs</h3><p>Apply what I learn through controlled, authorized cybersecurity laboratory exercises.</p></div></div>
+</div>
+</section>
+
+<section id="contact">
+<div class="section-title">
+<h2>Get In <span>Touch</span></h2>
+<p>Let's connect.</p>
+</div>
+<div class="contact-box">
+<h3>Interested in cybersecurity?</h3>
+<p>
+I am always interested in learning, connecting with other technology
+enthusiasts and growing my skills.
+</p>
+<div class="contact-links">
+<a href="mailto:millenochieng57@gmail.com">📧 Email</a>
+<a href="https://github.com/Millen" target="_blank" rel="noopener">🐙 GitHub</a>
+</div>
+</div>
+</section>
+
+<footer>
+<p>© 2026 <span>millen</span>. Built while learning cybersecurity.</p>
+<p><span>$</span> Learn • Build • Secure</p>
+</footer>
+
+</body>
+</html>
